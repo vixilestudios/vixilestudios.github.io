@@ -35,12 +35,6 @@ body {
   height: 40px;
 }
 
-@media (max-width: 420px) {
-  .button-84 {
-    height: 48px;
-  }
-}
-
 .outer-image {
   width: 100%;
   max-height: 25rem;
@@ -104,6 +98,11 @@ h1 {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.grid-content {
+  display: grid;
+  gap: 20px;
 }
 
 .section {

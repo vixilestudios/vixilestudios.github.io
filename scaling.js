@@ -1,11 +1,14 @@
-const MIN_EXPLANATION_HEIGHT = 100;
+const MIN_HEIGHT = 100;
+const MIN_LAYOUT = 1000;
 
 window.addEventListener('DOMContentLoaded', (event) => {
   adjustDivHeights();
+  toggleContentLayout();
 });
 
 window.addEventListener('resize', () => {
   adjustDivHeights();
+  toggleContentLayout();
 });
 
 function adjustDivHeights() {
@@ -18,12 +21,23 @@ function adjustDivHeights() {
   const explanationHeight = explanationDiv.offsetHeight;
   const showcaseHeight = showcaseDiv.offsetHeight;
 
-  if (explanationHeight < MIN_EXPLANATION_HEIGHT) {
-    explanationDiv.style.height = `${MIN_EXPLANATION_HEIGHT}px`;
-    showcaseDiv.style.height = `${MIN_EXPLANATION_HEIGHT}px`;
+  if (explanationHeight < MIN_HEIGHT) {
+    explanationDiv.style.height = `${MIN_HEIGHT}px`;
+    showcaseDiv.style.height = `${MIN_HEIGHT}px`;
   } else {
     const maxHeight = Math.max(explanationHeight, showcaseHeight);
     explanationDiv.style.height = `${maxHeight}px`;
     showcaseDiv.style.height = `${maxHeight}px`;
+  }
+}
+
+function toggleContentLayout() {
+  const viewportWidth = window.innerWidth;
+  const contentDiv = document.querySelector('.content');
+
+  if (viewportWidth < MIN_LAYOUT) {
+    contentDiv.classList.add('grid-content');
+  } else {
+    contentDiv.classList.remove('grid-content');
   }
 }
