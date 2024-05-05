@@ -76,6 +76,33 @@ h1 {
   background-color: #131313;
 }
 
+.indicator {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5rem;
+}
+
+
+
+.selected-bar {
+  flex-grow: 1;
+  height: 5px;
+  background-color: white;
+}
+
+.bottom-bars {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.bottom-bar {
+  flex-grow: 1;
+  height: 5px;
+  background-color: rgb(63, 63, 63);
+}
+
 .showcase {
   background-color: #000;
   display: flex;
