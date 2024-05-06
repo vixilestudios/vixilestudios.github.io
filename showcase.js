@@ -2,7 +2,7 @@ const images = ["/assets/images/image1.png", "/assets/images/image2.png", "/asse
 const texts = [
   {
     explanation: "What is VIXILE?",
-    explanationText: "VIXILE is an independent game development team established in October of 2021.",
+    explanationText: "VIXILE is an independent game development team established in October 2021.",
   },
   {
     explanation: "What do we bring?",
