@@ -1,4 +1,4 @@
-const images = ["/assets/images/image1.png", "/assets/images/image2.png", "/assets/images/image3.png"];
+const images = ["/assets/images/image1.jpeg", "/assets/images/image2.jpeg", "/assets/images/image3.jpeg"];
 const texts = [
   {
     explanation: "What is VIXILE?",
