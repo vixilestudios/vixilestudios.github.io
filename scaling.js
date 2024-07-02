@@ -1,7 +1,7 @@
-const MIN_HEIGHT = 100;
+const MIN_HEIGHT = 400;
 const MIN_LAYOUT = 1000;
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
   adjustDivHeights();
   toggleContentLayout();
 });
@@ -10,6 +10,7 @@ window.addEventListener('resize', () => {
   adjustDivHeights();
   toggleContentLayout();
 });
+
 
 function adjustDivHeights() {
   const explanationDiv = document.getElementById('explanation');
