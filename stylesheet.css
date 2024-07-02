@@ -10,7 +10,7 @@ body {
   width: 100%;
   height: 100%;
   color: white;
-  background: linear-gradient(180deg, #2C2C2C 0%, #131313 50%, #252525 100%);
+  background: linear-gradient(180deg, #2C2C2C 0%, #1f1f1f 50%, #151515 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -79,14 +79,15 @@ h1 {
 .indicator {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
   bottom: 0%;
 }
 
 .selected-bar {
   flex-grow: 1;
-  height: 7px;
-  margin: 0.1rem;
+  height: 13px;
+  margin: 0.2rem;
   background-color: white;
 }
 
@@ -96,12 +97,17 @@ h1 {
   margin-top: 10px;
 }
 
-
 .bottom-bar {
   flex-grow: 1;
-  height: 5px;
-  margin: 0.1rem;
+  height: 10px;
+  margin: 0.2rem;
   background-color: rgb(63, 63, 63);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bottom-bar:hover {
+  background-color: rgb(100, 100, 100);
 }
 
 .showcase {
@@ -137,9 +143,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 20px;
-  background-color: #333;
+  background-color: linear-gradient(180deg, #1f1f1f 0%, #151515 100%);
   color: white;
-  padding: 30px;
+  padding: 40px;
 }
 
 .nav-item {
@@ -148,7 +154,7 @@ h1 {
 
 .nav-title {
   margin: 0;
-  font-size: 35px;
+  font-size: 55px;
 }
 
 a {
@@ -158,7 +164,7 @@ a {
 
 .nav-subtitle {
   color: #aaa;
-  font-size: 30px;
+  font-size: 40px;
   text-decoration: underline;
 }
 
