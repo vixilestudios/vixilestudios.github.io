@@ -143,7 +143,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 20px;
-  background-color: linear-gradient(180deg, #1f1f1f 0%, #151515 100%);
+  background-color: #232323;
   color: white;
   padding: 40px;
 }
