@@ -3,6 +3,12 @@
   src: url('/assets/ligconsolata.ttf') format('truetype');
 }
 
+
+.explanation, .showcase {
+  overflow: hidden;
+}
+
+
 body {
   font-family: 'ligconsolata';
   margin: 0;
@@ -61,7 +67,7 @@ h1 {
 }
 
 .h {
-  font-size: 2rem;
+  font-size: 30px;
   letter-spacing: 0.3rem;
 }
 
@@ -74,6 +80,7 @@ h1 {
 
 .explanation {
   background-color: #131313;
+  height: 20rem;
 }
 
 .indicator {
@@ -114,21 +121,16 @@ h1 {
   background-color: #000;
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+  max-height: 25em;
 }
 
 .showcase img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-height: 25rem;
+  max-width: 100%;
 }
 
 .content {
-  padding: 20px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -136,7 +138,6 @@ h1 {
 
 .grid-content {
   display: grid;
-  gap: 20px;
 }
 
 .section {
