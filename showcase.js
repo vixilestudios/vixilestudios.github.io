@@ -1,4 +1,5 @@
-const images = ["/assets/images/image1.webp", "/assets/images/image2.webp", "/assets/images/image3.webp"];
+const carouselImagePath = "/assets/images/carousel"
+const carouselImages = [carouselImagePath + "/placeholder.webp", carouselImagePath + "/placeholder.webp", "/assets/images/image3.webp"];
 const texts = [
   {
     explanation: "What is VIXILE?",
@@ -20,14 +21,14 @@ function changeContent(currentIndex) {
   const { explanation, explanationText } = texts[currentIndex];
   document.querySelector('.explanation h1').textContent = explanation;
   document.querySelector('.explanation .h').textContent = explanationText;
-  document.querySelector('.showcase img').src = images[currentIndex];
+  document.querySelector('.showcase img').src = carouselImages[currentIndex];
 
-  document.querySelectorAll('.bottom-bars .bottom-bar, .bottom-bars .selected-bar').forEach((bar, i) => {
+  document.querySelectorAll('.kos-bottom-bars .kos-bottom-bar, .kos-bottom-bars .selected-bar').forEach((bar, i) => {
     if (i === currentIndex) {
       bar.classList.add('selected-bar');
-      bar.classList.remove('bottom-bar');
+      bar.classList.remove('kos-bottom-bar');
     } else {
-      bar.classList.add('bottom-bar');
+      bar.classList.add('kos-bottom-bar');
       bar.classList.remove('selected-bar');
     }
   });
@@ -50,7 +51,7 @@ function startTimer(startIndex) {
 document.addEventListener('DOMContentLoaded', function() {
   adjustDivHeights();
   toggleContentLayout();
-  const clickableElements = document.querySelectorAll('.bottom-bar');
+  const clickableElements = document.querySelectorAll('.kos-bottom-bar');
   changeContent(0);
   clickableElements.forEach(element => {
     element.addEventListener('click', function(event) {

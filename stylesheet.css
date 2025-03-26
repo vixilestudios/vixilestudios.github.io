@@ -101,6 +101,7 @@ h1 {
   width: 100%;
   color: #fff;
   height: 30rem;
+  position: relative;
 }
 
 .explanation {
@@ -109,11 +110,11 @@ h1 {
 }
 
 .indicator {
-  display: flex;
+  display: initial;
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
-  bottom: 0%;
+  top: 0%;
 }
 
 .selected-bar {
@@ -126,8 +127,6 @@ h1 {
 .bottom-bars {
   display: flex;
   justify-content: space-between;
-  margin-top: 1vw;
-  bottom: 0;
   width: 100%;
 }
 
@@ -138,6 +137,29 @@ h1 {
   background-color: rgb(63, 63, 63);
   cursor: pointer;
   transition: background-color 0.15s;
+}
+.kos-bottom-bars {
+  background-color: inherit;
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+  
+  position: absolute;
+  bottom: 3%;
+  left: 50%; transform: translateX(-50%);
+  width: 97%;
+}
+.kos-bottom-bar {
+  flex-grow: 1;
+  height: 10px;
+  margin: 0.2rem;
+  background-color: rgb(63, 63, 63);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  
+}
+.kos-bottom-bar:hover {
+  background-color: rgb(100, 100, 100);
 }
 
 .bottom-bar:hover {
@@ -186,6 +208,8 @@ h1 {
   inset: 0;
   padding: 4px; 
   background: linear-gradient(75deg, #141414, #626262);
+  mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+  mask-composite: xor;
   -webkit-mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -212,6 +236,7 @@ h1 {
   text-decoration: none;
   font-family: 'trueno-ol';
   white-space: nowrap;
+  letter-spacing: 10px;
 }
 
 @media (max-width: 768px) {
