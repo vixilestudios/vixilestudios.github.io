@@ -207,7 +207,8 @@ h1 {
   position: absolute;
   inset: 0;
   padding: 4px; 
-  background: linear-gradient(75deg, #141414, #626262);
+  /*background: linear-gradient(90deg, #141414, #626262);*/
+  background: var(--border-gradient, linear-gradient(90deg, #141414, #626262));
   mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
   mask-composite: xor;
   -webkit-mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);

@@ -7,11 +7,12 @@ function hsvToRgb(h, s, v) {
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".section");
 
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+  let gradientX = 0;
+  let borderGradientX = 0;
   let currentY = 0;
-  const easeFactor = 0.1;
+  const easeFactor = 10;
 
   let isBeingHovered = false;
   section.addEventListener("mouseenter", () => {isBeingHovered = true;});
@@ -23,44 +24,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
 
-    targetX = (mouseX / windowWidth) * 100;
-    targetY = (mouseY / windowHeight) * 100;
+    cursorX = (mouseX / windowWidth) * 100;
+    cursorY = (mouseY / windowHeight) * 100;
   });
 
-  currentX += (targetX - currentX) * easeFactor;
-  currentY += (targetY - currentY) * easeFactor;
-  let lastTime = performance.now(); // Time tracking for delta time
+  let blendFactor = 0;
 
+  let lastTime = performance.now(); // Time tracking for delta time
   function animate() {
     let time = performance.now();
-    const deltaTime = (time - lastTime) / 1000; // Time in seconds
+    const deltaTime = (time - lastTime) / 1000; // time in seconds
     lastTime = time;
-    
-    //console.log("Hovered: " + (isBeingHovered ? "Yes" : "No"))
 
-    const blendSpeed = 0.05; // higher value = faster transition
-    blendFactor += blendSpeed * (isBeingHovered ? 1 : -1) * deltaTime;
-    blendFactor = Math.min(Math.max(blendFactor, 0), 1); // Clamp between 0 and 1
+    //const blendSpeed = 0.1; // time in seconds
+    //blendFactor += 1/blendSpeed * (isBeingHovered ? 1 : -1) * deltaTime;
+    blendFactor += ((isBeingHovered?1:0) - blendFactor) * easeFactor * deltaTime;
+    blendFactor = Math.min(Math.max(blendFactor, 0), 1); // clamp between 0 and 1
+    blendFactor = Math.round(blendFactor * 1000) / 1000; // round to 3 decimal places
+
+    gradientX += (cursorX - gradientX) * easeFactor * deltaTime;
+    borderGradientX += (cursorX - borderGradientX) * easeFactor/3 * deltaTime;
+    currentY = cursorY /*(cursorY - currentY) * easeFactor*/;
 
     const colorNormal = hsvToRgb(0, 0, 0.07);
     const colorHovered = hsvToRgb(0, 0, 0.15);
 
-    let r = Math.round(baseColor[0] + (hoverColor[0] - baseColor[0]) * blendFactor * 20);
-    let g = Math.round(baseColor[1] + (hoverColor[1] - baseColor[1]) * blendFactor * 20);
-    let b = Math.round(baseColor[2] + (hoverColor[2] - baseColor[2]) * blendFactor * 20);
+    let brightnessHovered = colorHovered[0]
+    let brightnessNormal = colorNormal[0];
 
-    // test/fix this:
-    // section.style.background = `linear-gradient(90deg, 
-    // rgb(20, 20, 20) 0%, 
-    // rgb(${r}, ${g}, ${b}) ${currentX}%,
-    // rgb(20, 20, 20) 100%)`;
+    let brightness = Math.round(brightnessNormal + (brightnessHovered - brightnessNormal) * blendFactor);
 
-    if (isBeingHovered) {
-      section.style.background = `background: red`;
-    }
-    else {
-      section.style.background = `background: black`;
-    }
+    section.style.background = `linear-gradient(90deg, 
+    rgb(${brightnessNormal}, ${brightnessNormal}, ${brightnessNormal}) 0%, 
+    rgb(${brightness}, ${brightness}, ${brightness}) ${gradientX}%,
+    rgb(${brightnessNormal}, ${brightnessNormal}, ${brightnessNormal}) 100%)`;
+
+    section.style.setProperty(
+      '--border-gradient', 
+      `linear-gradient(90deg,
+      rgb(${brightnessNormal*2}, ${brightnessNormal*2}, ${brightnessNormal*2}) 0%, 
+      rgb(${brightness*2}, ${brightness*2}, ${brightness*2}) ${borderGradientX}%,
+      rgb(${brightnessNormal*2}, ${brightnessNormal*2}, ${brightnessNormal*2}) 100%)`
+    );
 
     requestAnimationFrame(animate);
   }
