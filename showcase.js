@@ -1,5 +1,5 @@
 const carouselImagePath = "/assets/images/carousel"
-const carouselImages = [carouselImagePath + "/placeholder.webp", carouselImagePath + "/placeholder.webp", "/assets/images/image3.webp"];
+const carouselImages = ["/assets/images/image2.webp", carouselImagePath + "/placeholder.webp", "/assets/images/image3.webp"];
 const texts = [
   {
     explanation: "What is VIXILE?",
@@ -7,11 +7,11 @@ const texts = [
   },
   {
     explanation: "What do we do?",
-    explanationText: "We love to take our time and build fun video-games, applications, services and software. With ambitious projects ahead and a focus on a resonating brand, we enjoy the road along the way."
+    explanationText: "We love to build fun video-games, applications, services and software. With ambitious projects ahead and a focus on a resonating brand, we enjoy the road along the way."
   },
   {
     explanation: "What's cool about us?",
-    explanationText: "We're dedicated to being unique in the game development industry. Our focus is on creating software that offers players memorable experiences.",
+    explanationText: "We're dedicated to being unique in the game development industry. Our focus is on creating games and apps that offer users fun and unforgettable experiences.",
   }
 ];
 let index = 0;

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let gradientX = 0;
   let borderGradientX = 0;
   let currentY = 0;
-  const easeFactor = 10;
+  const easeFactor = 7;
 
   let isBeingHovered = false;
   section.addEventListener("mouseenter", () => {isBeingHovered = true;});
