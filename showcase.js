@@ -1,5 +1,5 @@
 const carouselImagePath = "/assets/images/carousel"
-const carouselImages = ["/assets/images/image2.webp", carouselImagePath + "/placeholder.webp", "/assets/images/image3.webp"];
+const carouselImages = [carouselImagePath + "/image2.webp", carouselImagePath + "/placeholder.webp", carouselImagePath + "/image3.webp"];
 const texts = [
   {
     explanation: "What is VIXILE?",
