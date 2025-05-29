@@ -21,26 +21,26 @@
   src: url('/assets/TruenoBlkOl.otf') format('truetype');
 }
 
+body {
+  font-family: 'trueno';
+  background: linear-gradient(180deg, #111111 0%, #1f1f1f 50%, #151515 100%);
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-decoration: none;
+}
+
 .explanation, .showcase {
   overflow: hidden;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
-}
-
-body {
-  font-family: 'trueno';
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  background: linear-gradient(180deg, #111111 0%, #1f1f1f 50%, #151515 100%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   text-decoration: none;
 }
 
