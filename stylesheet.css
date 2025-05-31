@@ -35,6 +35,7 @@ body {
   text-decoration: none;
 }
 
+
 .explanation, .showcase {
   overflow: hidden;
 }
@@ -44,12 +45,23 @@ a {
   text-decoration: none;
 }
 
+.email-link {
+  color: #0077ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.email-link:hover {
+  color: #0056cc;
+  text-decoration: underline;
+}
+
 .navbar {
-  backdrop-filter: blur(40px);
+  background-color: #121212;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
   padding: 10px 20px;
   position: fixed;
   top: 0;
@@ -58,6 +70,14 @@ a {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+@supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {
+  .navbar {
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+  }
 }
 
 .navbar-child {
