@@ -1,7 +1,7 @@
 const MIN_HEIGHT = 400;
 const MIN_LAYOUT = 1000;
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   adjustDivHeights();
   toggleContentLayout();
 });
@@ -16,8 +16,8 @@ function adjustDivHeights() {
   const explanationDiv = document.getElementById('explanation');
   const showcaseDiv = document.querySelector('.showcase');
 
-  explanationDiv.style.height = 'auto';
-  showcaseDiv.style.height = 'auto';
+  explanationDiv.style.height = '500px';
+  showcaseDiv.style.height = '500px';
 
   const explanationHeight = explanationDiv.offsetHeight;
   const showcaseHeight = showcaseDiv.offsetHeight;
